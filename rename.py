@@ -2,7 +2,8 @@
 from os import rename, listdir, chdir
 from os.path import isfile, join
 
-def renameFiles(path, ext, start):
+
+def renameFilesWithSearch(path, ext, start):
     chdir(path)
     onlyFiles = [item for item in listdir(path) if isfile(item)]
     for file in onlyFiles:
@@ -13,6 +14,17 @@ def renameFiles(path, ext, start):
             print('\n' + finalName, 'has been changed')
         else:
             print(file, 'has not been changed')
+
+
+def renameWithoutSearch(path):
+    chdir(path)
+    onlyFiles = [item for item in listdir(path) if isfile(item)]
+    for file in onlyFiles:
+        ext = file[-4:]
+        name = file[:-4]
+        finalName = name[0:-12] + ext
+        rename(file, finalName)
+        print('\n' + finalName, 'has been changed')
 
 
 def renameFile(path):
@@ -37,7 +49,7 @@ if __name__ == '__main__':
     elif answer == 2:
         x = input('Please enter the extension your searching for: ')
         s = input('Please enter the first four characters of the name: ')
-        renameFiles(p, x, s)
+        renameFilesWithSearch(p, x, s)
     else:
         print('Invalid Choice!')
 
