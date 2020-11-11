@@ -52,7 +52,7 @@ if __name__ == '__main__':
         s = input('Please enter the first four characters of the name: ')
         renameFilesWithSearch(p, x, s)
     elif answer == 3:
-        renameFile(p)
+        renameWithoutSearch(p)
     else:
         print('Invalid Choice!')
 
