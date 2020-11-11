@@ -42,14 +42,17 @@ def renameFile(path):
 
 if __name__ == '__main__':
     p = input('Please enter the path to search: ')
-    answer = int(input('Press 1 to rename a single file:\n' \
-                   'Press 2 to rename multiple files: '))
+    answer = int(input('Press 1 to rename a single file\n' \
+                       'Press 2 to rename multiple files with a search\n' \
+                       'Press 3 to rename multiple files\n'))
     if answer == 1:
         renameFile(p)
     elif answer == 2:
         x = input('Please enter the extension your searching for: ')
         s = input('Please enter the first four characters of the name: ')
         renameFilesWithSearch(p, x, s)
+    elif answer == 3:
+        renameFile(p)
     else:
         print('Invalid Choice!')
 
