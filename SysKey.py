@@ -1,4 +1,4 @@
-#/usr/bin/python3
+# /usr/bin/python3
 # Copyright (c) July 25th, 2020
 # Modified: October 31st, 2020
 # License: MIT
@@ -57,11 +57,11 @@ def user_simulation(current):
                 system('clear')
 
             # Format consol output with color
-            print(GREEN, '** User Input Simulation **\n'
+            print(GREEN, '** User Input Simulation **\n',
                   YELLOW, '** Press Ctrl + C to quit **')
 
             random_duration = randint(1, 4) * 60
-            time_duration = int(random_druation / 60)
+            time_duration = int(random_duration / 60)
             press(sim_key)
             key_press_count += 1
             tense = ''
@@ -75,7 +75,8 @@ def user_simulation(current):
             print(CYAN, str(time_duration), RED + 'minute interval\n',
                   CYAN, sim_key, RED + 'has been pressed',
                   CYAN + str(key_press_count), RED + tense)
-            print(RED, 'For a total time of', CYAN + str(convert_time(total_duration)))
+            print(RED, 'For a total time of',
+                  CYAN + str(convert_time(total_duration)))
             total_duration += random_duration
             countdown(random_duration)
 
@@ -87,7 +88,7 @@ def user_simulation(current):
 def convert_time(seconds):
     seconds = seconds % (24 * 3600)
     hours = seconds // 3600
-    sconds %= 3600
+    seconds %= 3600
     minutes = seconds // 60
     seconds %= 60
     return '{:02d}:{:02d}'.format(hours, minutes)
@@ -95,8 +96,8 @@ def convert_time(seconds):
 
 def countdown(t):
     while t:
-        timeformat = '\033[1;36;40m {:02d}:{:02d}\033[1;31;40m currently remaining'.format(*divmod(t, 60))
-        print(timeformat, end='\r')
+        tf = '\033[1;36;40m {:02d}:{:02d}\033[1;31;40m currently remaining'.format(*divmod(t, 60))
+        print(tf, end='\r')
         sleep(1)
         t -= 1
 
@@ -119,7 +120,7 @@ if __name__ == 'Sys Key':
     now = datetime.now()
     total = user_simulation(now)
     basicConfig(level=INFO)
-    FILE = getenv('UserProfile') + '/Desktop/time.log'
+    FILE = getenv('HOME') + '/Desktop/time.log'
     fileHandler = RotatingFileHandler(FILE, ACCESS, maxBytes=SIZE,
                                       backupCount=1, encoding=None, delay=0)
     fileFormat = Formatter('%(asctime)s - %(levelname)s - %(message)s',
