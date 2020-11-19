@@ -120,7 +120,7 @@ if __name__ == 'Sys Key':
     now = datetime.now()
     total = user_simulation(now)
     basicConfig(level=INFO)
-    FILE = getenv('HOME') + '/Desktop/time.log'
+    FILE = getenv('HOME') + '/time.log'
     fileHandler = RotatingFileHandler(FILE, ACCESS, maxBytes=SIZE,
                                       backupCount=1, encoding=None, delay=0)
     fileFormat = Formatter('%(asctime)s - %(levelname)s - %(message)s',
