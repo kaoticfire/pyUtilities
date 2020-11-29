@@ -27,6 +27,17 @@ def renameWithoutSearch(path):
         print('\n' + finalName, 'has been changed')
 
 
+def fixFileName(path):
+    chdir(path)
+    onlyFiles = [item for item in listdir(path) if isfile(item)]
+    for file in onlyFiles:
+        ext = file[-3:]
+        name = file[:-4]
+        finalName = name[0:-1] + '.w' + ext
+        rename(file, finalName)
+        print(finalName, 'has been changed\n')
+
+
 def renameFile(path):
     chdir(path)
     newName = ''
@@ -44,7 +55,8 @@ if __name__ == '__main__':
     p = input('Please enter the path to search: ')
     answer = int(input('Press 1 to rename a single file\n' \
                        'Press 2 to rename multiple files with a search\n' \
-                       'Press 3 to rename multiple files\n'))
+                       'Press 3 to rename multiple files\n' \
+                       'Press 4 to fix file names\n'))
     if answer == 1:
         renameFile(p)
     elif answer == 2:
@@ -53,7 +65,8 @@ if __name__ == '__main__':
         renameFilesWithSearch(p, x, s)
     elif answer == 3:
         renameWithoutSearch(p)
+    elif answer == 4:
+        fixFileName(p)
     else:
         print('Invalid Choice!')
-
 
