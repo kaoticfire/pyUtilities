@@ -126,7 +126,7 @@ if __name__ == 'Sys Key':
     fileFormat = Formatter('%(asctime)s - %(levelname)s - %(message)s',
                            datefmt='%Y-%m-%d %H:%M:%S')
     fileHandler.setLevel(INFO)
-    fileHandler.setFormater(fileFormat)
+    fileHandler.setFormatter(fileFormat)
     logger = getLogger(__name__)
     logger.addHandler(fileHandler)
     logger.info(total)
