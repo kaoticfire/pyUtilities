@@ -17,8 +17,7 @@ from datetime import datetime
 from time import sleep
 from logging import getLogger, basicConfig, Formatter, INFO
 from logging.handlers import RotatingFileHandler
-from os import system, getenv
-import webbrowser
+from os import system
 
 CYAN = '\033[1;36;40m'
 RED = '\033[1;31;40m'
@@ -38,7 +37,7 @@ def user_simulation(current):
     # Set some variables like window size, the key used, & a counter.
     # TODO: Fix bug with linux terminal resizing
     system('mode con: cols=40 lines=7')
-    sim_key = 'f4'
+    sim_key = 'shift'
     key_press_count = 0
     total_duration = 0
 
@@ -120,7 +119,7 @@ if __name__ == 'Sys Key':
     now = datetime.now()
     total = user_simulation(now)
     basicConfig(level=INFO)
-    FILE = getenv('HOME') + '/time.log'
+    FILE = '/var/log/time.log'
     fileHandler = RotatingFileHandler(FILE, ACCESS, maxBytes=SIZE,
                                       backupCount=1, encoding=None, delay=0)
     fileFormat = Formatter('%(asctime)s - %(levelname)s - %(message)s',
@@ -130,5 +129,3 @@ if __name__ == 'Sys Key':
     logger = getLogger(__name__)
     logger.addHandler(fileHandler)
     logger.info(total)
-    sleep(1)
-    webbrowser.open(FILE)
