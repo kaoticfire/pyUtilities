@@ -19,7 +19,7 @@ def calculator() -> str:
         numbers = [4480.5, 321, -4.3, -20.47, -22, -80, -1000, -5, -178.98]
         flag = True
     elif choice == 'n':
-        st = float(input('Enter your starting number: '))
+        st = float(input('Enter your starting number: (0 to end) '))
         is_finished = False
         while not is_finished:
             if number := float(input('Enter a number to add to the variance: ')) == 0:

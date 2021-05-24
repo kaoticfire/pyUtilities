@@ -51,7 +51,6 @@ def check_for_duplicates(paths, hash=hashlib.sha1):
                     # not accessible (permissions, etc) - pass on
                     continue
 
-
     # For all files with the same file size, get their hash on the 1st 1024 bytes only
     for size_in_bytes, files in hashes_by_size.items():
         if len(files) < 2:
