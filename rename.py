@@ -12,7 +12,7 @@ def rename_files_with_search(loc: str) -> None:
         if file[-4:] == ext and file[0:4] == start:
             name = file[:-4]
             final_name = name[0:-12] + ext
-            rename(file, final_name)
+            rename(path.join(loc, file), path.join(loc, final_name))
             print('\n' + final_name, 'has been changed')
         else:
             print(file, 'has not been changed')
@@ -36,7 +36,7 @@ def rename_without_search(loc: str) -> None:
         ext = file[-4:]
         name = file[:-4]
         final_name = name[0:-12] + ext
-        rename(file, final_name)
+        rename(path.join(loc, file), path.join(loc, final_name))
         print('\n' + final_name, 'has been changed')
 
 
@@ -46,7 +46,7 @@ def fix_file_name(loc: str) -> None:
         ext = file[-3:]
         name = file[:-4]
         final_name = name[0:-1] + '.w' + ext
-        rename(file, final_name)
+        rename(path.join(loc, file), path.join(loc, final_name))
         print(final_name, 'has been changed\n')
 
 
@@ -56,7 +56,7 @@ def rename_file() -> None:
     for item in file[:-4].split():
         new_name += item.lower().capitalize() + ' '
     new_name = new_name[:-1] + file[-4:]
-    rename(file, new_name)
+    rename(path.join(loc, file), path.join(loc, final_name))
     print(file, 'has been renamed to', new_name)
 
 
