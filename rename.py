@@ -12,6 +12,7 @@ def rename_files_with_search(loc: str) -> None:
         if file[-4:] == ext and file[0:4] == start:
             name = file[:-4]
             final_name = name[0:-12] + ext
+            assert final_name.__contains__('/'), "NameError"
             rename(path.join(loc, file), path.join(loc, final_name))
             print('\n' + final_name, 'has been changed')
         else:
