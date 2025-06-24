@@ -1,9 +1,9 @@
 # /usr/bin/python3
-from os import rename, listdir, chdir, path
+from os import rename, listdir, chdir, path, getcwd
 from os.path import isfile
 
 
-def rename_files_with_search(loc: str) -> None:
+def rename_files_with_search(loc = getcwd(): str) -> None:
     ext = input('Please enter the extension your searching for: ')
     start = input('Please enter the first four characters of the name: ')
 
@@ -19,7 +19,7 @@ def rename_files_with_search(loc: str) -> None:
             print(file, 'has not been changed')
 
 
-def rename_with_search_pattern(loc: str) -> None:
+def rename_with_search_pattern(loc = getcwd(): str) -> None:
     old_term = input('Please enter the search term to remove: ')
     new_term = input('Please enter the new term to use: ')
     _counter = 0
@@ -31,7 +31,7 @@ def rename_with_search_pattern(loc: str) -> None:
         print("No file has been found")
 
 
-def rename_without_search(loc: str) -> None:
+def rename_without_search(loc = getcwd(): str) -> None:
     only_files = [item for item in listdir(loc) if isfile(item)]
     for file in only_files:
         ext = file[-4:]
@@ -41,7 +41,7 @@ def rename_without_search(loc: str) -> None:
         print('\n' + final_name, 'has been changed')
 
 
-def fix_file_name(loc: str) -> None:
+def fix_file_name(loc = getcwd(): str) -> None:
     only_files = [item for item in listdir(loc) if isfile(item)]
     for file in only_files:
         ext = file[-3:]
