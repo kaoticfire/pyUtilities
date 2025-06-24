@@ -51,7 +51,7 @@ def fix_file_name(loc: str = getcwd()) -> None:
         print(final_name, 'has been changed\n')
 
 
-def rename_file() -> None:
+def rename_file(loc: str = getcwd()) -> None:
     new_name = ''
     file = input('Please enter the filename to change: ')
     for item in file[:-4].split():
