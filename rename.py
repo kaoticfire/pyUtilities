@@ -56,7 +56,7 @@ def rename_file(loc: str = getcwd()) -> None:
     file = input('Please enter the filename to change: ')
     for item in file[:-4].split():
         new_name += item.lower().capitalize() + ' '
-    new_name = new_name[:-1] + file[-4:]
+    final_name = new_name[:-1] + file[-4:]
     rename(path.join(loc, file), path.join(loc, final_name))
     print(file, 'has been renamed to', new_name)
 
