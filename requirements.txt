@@ -7,4 +7,4 @@ PyPDF==3.17.0
 PySimpleGUI==4.44.0
 requests==2.32.4
 soupsieve==2.2.1
-urllib3==2.2.2
+urllib3==2.5.0
