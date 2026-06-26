@@ -3,7 +3,7 @@ certifi==2024.7.4
 chardet==4.0.0
 idna==3.15
 pyenchant==3.2.0
-PyPDF==6.12.0
+PyPDF==6.12.1
 PySimpleGUI==5.0.8.3
 requests==2.33.0
 soupsieve==2.2.1
